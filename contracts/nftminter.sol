@@ -10,6 +10,8 @@ contract NFTMinter is ERC721Enumerable, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdCounter;
 
+    constructor() ERC721("MyNFT", "MNFT") {}
+
     function mint(address recipient, string memory tokenURI) public onlyOwner {
         _tokenIdCounter.increment();
         uint256 newTokenId = _tokenIdCounter.current();
